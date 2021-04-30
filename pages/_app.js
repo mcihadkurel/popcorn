@@ -10,17 +10,22 @@ const SEARCH_API = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a
 function MyApp({ Component, pageProps }) {
   const [movies, setMovies] = useState([]);
 
-  useEffect(async () => {
-    const moviesResp = await fetch(FEATURED_API);
-    const moviesR = await moviesResp.json();
+  useEffect(() => {
+    loadData();
+  }, []);
 
-    setMovies(moviesR);
-  }, [])
+  const loadData = async () => {
+    const response = await fetch(FEATURED_API);
+    const movies = await response.json();
+    setMovies(movies);
+    console.log(movies);
+  }
 
   return <div style={{color: '#ccc'}}>
-    {movies.map(movie => (
-     <Movie/> 
-    ))}
+    {movies.length > 0 && movies.map((movie) =>
+      <Movie data={movie} />
+    )}
+
   </div>
 }
 
