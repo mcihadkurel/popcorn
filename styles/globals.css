@@ -3,6 +3,7 @@ body {
   background: linear-gradient(to left, #513, #133 155%, #eee 75%, #133 75%);
   padding: 0;
   margin: 0;
+  
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     
@@ -14,6 +15,28 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+header {
+  background-color: linear-gradient(to left, #513, #133 155%, #eee 75%, #133 75%);
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
+}
+
+.text {
+  background-color: rgb(126, 112, 112);
+  border: 2px solid #373b69;
+  font-family: inherit;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  outline: none;
+}
+
+::placeholder {
+  color: rgb(243, 194, 194);
 }
 
 .movie-container {
@@ -58,4 +81,10 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease-out;
+}
+
+.movie:hover .movie-over{
+  transform: translateX(0%);
 }
