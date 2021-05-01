@@ -23,10 +23,39 @@ a {
 
 .movie {
   background-color: #373b69;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px rgb(0, 0,0, 0.1);
+  overflow: hidden;
+  position: relative;
   margin: 1rem;
-  width: 250px;
+  width: 300px;
 }
 
 .movie img {
   max-width: 100%;
+}
+
+.movie-info {
+  display: flex;
+}
+
+.movie-info h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1rem;
+}
+
+.movie-info h3 {
+  margin: 0;
+}
+
+.movie-over {
+  background-color: #fff;
+  color: #373b69;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
