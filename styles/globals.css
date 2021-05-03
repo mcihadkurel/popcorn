@@ -35,9 +35,11 @@ header {
   outline: none;
 }
 
-::placeholder {
+::placeholder,
+input[type=text] {
   color: rgb(243, 194, 194);
 }
+
 
 .movie-container {
   display: flex;

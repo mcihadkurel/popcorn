@@ -10,6 +10,7 @@ const SEARCH_API =
 
 function MyApp({ Component, pageProps }) {
   const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     loadData();
@@ -22,10 +23,38 @@ function MyApp({ Component, pageProps }) {
     console.log(movies);
   };
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    if (searchTerm) {
+      fetch(SEARCH_API + searchTerm)
+            .then((res) => res.json())
+              .then((data) => {
+                setMovies(movies.results);
+              
+            })
+      };
+      
+      setSearchTerm("");
+    }
+
+
+  const handleOnChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <>
       <header>
-        <input type="text" placeholder="Search" className="text" />
+        <form onSubmit={handleOnSubmit}>
+          <input
+            type="text"
+            placeholder="Search"
+            className="text"
+            value={searchTerm}
+            onChange={handleOnChange}
+          />
+        </form>
       </header>
       <div className="movie-container" style={{ color: "#ccc" }}>
         {movies.length > 0 &&
@@ -33,6 +62,6 @@ function MyApp({ Component, pageProps }) {
       </div>
     </>
   );
-}
 
+  };
 export default MyApp;
