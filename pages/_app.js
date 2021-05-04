@@ -38,6 +38,16 @@ function MyApp({ Component, pageProps }) {
       setSearchTerm("");
     }
 
+    const resetInputField = () => {
+      setSearchValue("")
+    }
+  
+    const callSearchFunction = (e) => {
+      e.preventDefault();
+      props.search(searchValue);
+      resetInputField();
+    }
+
 
   const handleOnChange = (e) => {
     setSearchTerm(e.target.value);
